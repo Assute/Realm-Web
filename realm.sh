@@ -4,8 +4,8 @@
 # 全局配置
 # ========================================
 CURRENT_VERSION="1.2.0"
-UPDATE_URL="https://raw.githubusercontent.com/qqrrooty/EZrealm/main/realm.sh"
-VERSION_CHECK_URL="https://raw.githubusercontent.com/qqrrooty/EZrealm/main/version.txt"
+UPDATE_URL="https://raw.githubusercontent.com/Assute/V2bx-Web/main/realm.sh"
+VERSION_CHECK_URL="https://raw.githubusercontent.com/Assute/V2bx-Web/main/version.txt"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REALM_DIR="/root/realm"
 CONFIG_FILE="$REALM_DIR/config.toml"
@@ -17,7 +17,7 @@ PANEL_ENTRY="$PANEL_DIR/server.py"
 PANEL_SERVICE_FILE="/etc/systemd/system/realm-panel.service"
 PANEL_DATA_FILE="$PANEL_DIR/panel_data.json"
 PANEL_DEFAULT_PORT="3060"
-PANEL_REMOTE_BASE="https://raw.githubusercontent.com/qqrrooty/EZrealm/main/panel"
+PANEL_REMOTE_BASE="https://raw.githubusercontent.com/Assute/V2bx-Web/main/panel"
 PANEL_SOURCE_DIR="$SCRIPT_DIR/panel"
 
 # ========================================
@@ -714,7 +714,7 @@ main_menu() {
         echo -e "          1. 保留原有 CLI 安装 / 规则 / 服务逻辑"
         echo -e "          2. 新增网页面板管理入口"
         echo -e "          3. 面板支持规则管理、批量导入、备份恢复、背景与账户设置"
-        echo -e "    仓库: https://github.com/qqrrooty/EZrealm"
+        echo -e "    仓库: https://github.com/Assute/V2bx-Web"
         echo -e "${YELLOW}════════════════════════════════════════════════════════════${NC}"
         echo
         echo -e "${YELLOW}服务状态：$(service_control status)${NC}"

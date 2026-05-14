@@ -4,8 +4,8 @@
 # 全局配置
 # ========================================
 CURRENT_VERSION="1.0.3"
-UPDATE_URL="https://raw.githubusercontent.com/qqrrooty/EZrealm/main/test/realm.sh"
-VERSION_CHECK_URL="https://raw.githubusercontent.com/qqrrooty/EZrealm/main/version.txt"
+UPDATE_URL="https://raw.githubusercontent.com/Assute/V2bx-Web/main/test/realm.sh"
+VERSION_CHECK_URL="https://raw.githubusercontent.com/Assute/V2bx-Web/main/version.txt"
 REALM_DIR="/root/realm"
 CONFIG_FILE="$REALM_DIR/config.toml"
 SERVICE_FILE="/etc/systemd/system/realm.service"
@@ -536,7 +536,7 @@ main_menu() {
         echo -e "    (1)安装前请先更新系统软件包，缺少命令可能无法安装"
         echo -e "    (2)如果启动失败请检查 /root/realm/config.toml下有无多余配置或者卸载后重新配置"
         echo -e "    (3)该脚本只在debian系统下测试，未做其他系统适配，安装命令有别，可能无法启动。如若遇到问题，请自行解决"
-        echo -e "    仓库：https://github.com/qqrrooty/EZrealm${NC}"
+    echo -e "    仓库：https://github.com/Assute/V2bx-Web${NC}"
         echo -e "${YELLOW}▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂﹍▂${NC}"
         echo -e "  "
         echo -e "${YELLOW}服务状态：$(service_control status)${NC}"
