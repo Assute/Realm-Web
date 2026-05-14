@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Realm Panel Login</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{--primary:#3b82f6;--text:#374151}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:url('__BG_PC__') no-repeat center center/cover;display:flex;align-items:center;justify-content:center;padding:20px;color:var(--text)}
+    @media(max-width:768px){body{background-image:url('__BG_MOBILE__')}}
+    .card{width:100%;max-width:380px;background:rgba(255,255,255,.32);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.35);border-radius:24px;padding:28px;box-shadow:0 25px 60px rgba(0,0,0,.12)}
+    .title{font-size:1.4rem;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+    .sub{font-size:.9rem;color:#6b7280;margin-bottom:22px}
+    label{display:block;font-size:.88rem;color:#6b7280;margin:12px 0 6px}
+    input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.06);background:rgba(255,255,255,.55);outline:none;font-size:.95rem}
+    input:focus{background:#fff;border-color:var(--primary)}
+    button{width:100%;margin-top:18px;border:none;border-radius:12px;padding:12px 16px;background:var(--primary);color:#fff;font-weight:600;cursor:pointer}
+    .msg{min-height:20px;margin-top:12px;font-size:.88rem;color:#ef4444}
+    .hint{margin-top:16px;font-size:.82rem;color:#6b7280}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="title"><i class="fas fa-layer-group"></i> Realm Panel</div>
+    <div class="sub">登录后即可管理 Realm 转发规则</div>
+    <label>用户名</label>
+    <input id="u" value="admin" autocomplete="username">
+    <label>密码</label>
+    <input id="p" type="password" placeholder="请输入密码" autocomplete="current-password">
+    <button onclick="login()">登录</button>
+    <div class="msg" id="msg"></div>
+    <div class="hint">默认账号：admin / 123456</div>
+  </div>
+
+  <script>
+    const $=id=>document.getElementById(id);
+    async function login(){
+      $('msg').innerText='';
+      const username=$('u').value.trim();
+      const password=$('p').value;
+      if(!username||!password){$('msg').innerText='请输入账号和密码';return;}
+      const res=await fetch('/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username,password})});
+      const data=await res.json();
+      if(res.ok&&data.status==='ok'){location.href='/';return;}
+      $('msg').innerText=data.message||'登录失败';
+    }
+    document.addEventListener('keydown',e=>{if(e.key==='Enter')login();});
+  </script>
+</body>
+</html>
