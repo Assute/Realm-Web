@@ -738,8 +738,9 @@ main_menu() {
         echo "8. 定时任务管理"
         echo "9. 查看日志"
         echo -e "${YELLOW}------------------${NC}"
-        echo "10. 面板管理"
-        echo "11. 完全卸载"
+        echo "10. 完全卸载"
+        echo -e "${YELLOW}------------------${NC}"
+        echo "11. 面板管理"
         echo -e "${YELLOW}------------------${NC}"
         echo "0. 退出脚本"
         echo -e "${YELLOW}------------------${NC}"
@@ -759,11 +760,6 @@ main_menu() {
                 tail -n 20 "$LOG_FILE"
                 ;;
             10)
-                panel_menu
-                clear
-                continue
-                ;;
-            11)
                 read -rp "确认完全卸载？(y/n): " confirm
                 if [[ "$confirm" == "y" ]]; then
                     uninstall
@@ -771,6 +767,11 @@ main_menu() {
                     clear
                     exit 0
                 fi
+                ;;
+            11)
+                panel_menu
+                clear
+                continue
                 ;;
             0)
                 exit 0
